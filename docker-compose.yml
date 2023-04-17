@@ -2,20 +2,19 @@ version: "3.8"
 
 services:
     handle_service:
-        # tty: true
-        # stdin_open: true
         build:
             context: "."
             dockerfile: ./docker/Dockerfile
         volumes:
             - .:/var/www/html
         ports:
-            - 8000:8000
+            - 9000:9000
 
-    # nginx:
-    #    build:
-    #       context: '.'
-    #       dockerfile: ./docker/nginx.Dockerfile
-    #    ports:
-    #       - '80:80'
-    #    restart: always
+    nginx:
+        build:
+            context: "."
+            dockerfile: ./docker/nginx.Dockerfile
+        volumes:
+            - ./public:/var/www/html/public
+        ports:
+            - "80:80"

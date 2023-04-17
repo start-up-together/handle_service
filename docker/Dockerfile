@@ -12,5 +12,5 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
 
 ENV PATH=/var/www/html/vendor/bin:$PATH
 
-ENTRYPOINT ["php", "artisan", "serve", "--host=0.0.0.0"]
+ENTRYPOINT ["php-fpm"]
 
